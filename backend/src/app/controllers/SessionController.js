@@ -23,7 +23,7 @@ class SessionController {
       const user = await User.findOne({ email });
       if (!user) { return res.status(404).json({ message: 'User Not Found' }); }
       user.createRecoveryPassword();
-      user.save();
+      await user.save();
 
       const { token } = user.recovery;
 

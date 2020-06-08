@@ -41,7 +41,7 @@ class UserController {
         await user.save();
         return await res.json({ user: user.sendToken() });
       }
-      return res.json(user);
+      return res.json({ message: 'User is alredy registred' });
     } catch (error) {
       return res.status(404).json(error);
     }
